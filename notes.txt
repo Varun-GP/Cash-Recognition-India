@@ -1,0 +1,44 @@
+
+
+ffmpeg -i /home/user/Desktop/varun/cash_recognition/data/200.mp4 -vf fps=1 /home/user/Desktop/varun/cash_recognition/data/TwoHundred/1_%d.jpg
+
+
+
+sudo python /home/user/Desktop/varun/tensorflow/tensorflow/examples/image_retraining/retrain.py   --bottleneck_dir=/home/user/Desktop/varun/cash_recognition/junk   --how_many_training_steps 3000   --model_dir=/home/user/Desktop/varun/cash_recognition/models   --output_graph=/home/user/Desktop/varun/cash_recognition/models/cash_recog.pb   --output_labels=/home/user/Desktop/varun/cash_recognition/models/labels.txt  --image_dir /home/user/Desktop/varun/cash_recognition/data/
+
+
+
+python /home/user/Desktop/varun/tensorflow/tensorflow/python/tools/optimize_for_inference.py --input=/home/user/Desktop/varun/cash_recognition/models/cash_recog.pb --output=/home/user/Desktop/varun/cash_recognition/models/optimized.pb --input_names="Mul" --output_names="final_result"
+
+
+sudo cp /home/user/Desktop/varun/cash_recognition/models/optimized.pb /home/user/Desktop/varun/cash_recognition/models/labels.txt /home/user/Desktop/varun/cash_recognition/tensorflow-classifier-android/app/src/main/assets/
+
+
+streamlit run my_app.py
+
+# test 1
+
+sudo python /home/user/Desktop/varun/tensorflow/tensorflow/examples/image_retraining/retrain.py   --bottleneck_dir=/home/user/Desktop/varun/cash_recognition/junk --model_dir=/home/user/Desktop/varun/cash_recognition/models   --output_graph=/home/user/Desktop/varun/cash_recognition/models/cash_recog.pb   --output_labels=/home/user/Desktop/varun/cash_recognition/models/labels.txt  --image_dir /home/user/Desktop/varun/cash_recognition/data/ --print_misclassified_test_images --flip_left_right --random_crop=10 --random_brightness=10 --how_many_training_steps=3000 --learning_rate=0.001  --train_batch_size=64
+
+2019-10-31 09:07:03.488300: Step 2999: Train accuracy = 98.4%
+2019-10-31 09:07:03.488370: Step 2999: Cross entropy = 0.395660
+2019-10-31 09:07:03.539998: Step 2999: Validation accuracy = 95.0% (N=100)
+Final test accuracy = 87.9% (N=66)
+=== MISCLASSIFIED TEST IMAGES ===
+            /home/user/Desktop/varun/cash_recognition/data/Ten/1_1.jpg  hundred
+   /home/user/Desktop/varun/cash_recognition/data/FiveHundred/1_47.jpg  ten1
+      /home/user/Desktop/varun/cash_recognition/data/Hundred1/1_11.jpg  hundred
+       /home/user/Desktop/varun/cash_recognition/data/Hundred1/1_8.jpg  fifty1
+         /home/user/Desktop/varun/cash_recognition/data/fifty/1_15.jpg  ten
+        /home/user/Desktop/varun/cash_recognition/data/Twenty/1_46.jpg  ten1
+       /home/user/Desktop/varun/cash_recognition/data/hundred/1_16.jpg  ten
+       /home/user/Desktop/varun/cash_recognition/data/hundred/1_22.jpg  fifty1
+Converted 2 variables to const ops.
+
+Very low accuracy, confused with 10/20
+
+
+# test 2
+
+sudo python /home/user/Desktop/varun/tensorflow/tensorflow/examples/image_retraining/retrain.py   --bottleneck_dir=/home/user/Desktop/varun/cash_recognition/junk --model_dir=/home/user/Desktop/varun/cash_recognition/models   --output_graph=/home/user/Desktop/varun/cash_recognition/models/cash_recog.pb   --output_labels=/home/user/Desktop/varun/cash_recognition/models/labels.txt  --image_dir /home/user/Desktop/varun/cash_recognition/data/ --print_misclassified_test_images --flip_left_right --random_crop=10 --random_brightness=10 --how_many_training_steps=4000 --learning_rate=0.001  --train_batch_size=128
+
