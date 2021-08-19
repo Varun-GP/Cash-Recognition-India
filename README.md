@@ -9,3 +9,6 @@ This project is a demonstration of Cash Recognition system for Indian currencies
    Using Deep Learning techniques to recognize a currency note in the picture.
    
    TODO: Add decriptions for usage. 
+   
+**Android Application**
+Download APK: https://drive.google.com/file/d/19_0mM7xm2qUtDOiFubzVjTZ5e224D9B8/view?usp=sharing
