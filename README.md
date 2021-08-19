@@ -10,5 +10,6 @@ This project is a demonstration of Cash Recognition system for Indian currencies
    
    TODO: Add decriptions for usage. 
    
-**Android Application**
+**Android Application**:
+
 Download APK: https://drive.google.com/file/d/19_0mM7xm2qUtDOiFubzVjTZ5e224D9B8/view?usp=sharing
